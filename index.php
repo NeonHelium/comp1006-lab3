@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP: Lab 3</title>
+    <!-- Boostrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
     <main>
         <h1>Welcome to Lab 3, PHP Web Programming</h1>
-        
+
     </main>
 </body>
 </html>
