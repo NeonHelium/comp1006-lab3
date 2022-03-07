@@ -38,6 +38,9 @@
                             <td>'
                                 . $club['Club Ground'] . 
                             '</td>
+                            <td>
+                                
+                            </td>
                         </tr>';  
                 }
 

@@ -40,13 +40,15 @@
         <!-- Page form -->
         <form method="POST" action="save-club.php">
             <fieldset>
-                <label for="clubname">Club Name:</label>
-                <input name="clubname" id="clubname" required maxlength="100" value="<?php echo $clubName; ?>">
+                <label for="clubName">Club Name:</label>
+                <input name="clubName" id="clubName" required maxlength="100" value="<?php echo $clubName; ?>">
             </fieldset>
             <fieldset>
                 <label for="ground">Club Ground:</label>
                 <input name="ground" id="ground" required maxlength="100" value="<?php echo $ground; ?>">
             </fieldset>
+            <input type="hidden" name="clubId" id="clubId" value="<?php echo $clubId; ?>">
+            <button>Save</button>
         </form>
     </main>
 </body>
