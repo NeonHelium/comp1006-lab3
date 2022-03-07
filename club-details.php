@@ -1,47 +1,53 @@
-<!-- handles retreival and display of information from the database -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clubs</title>
+    <title>Club Details</title>
     <!-- Boostrap -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
-    <h1>Clubs List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Club Name</th>
-                <th>Club Ground</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                // Connect to the db
+<?php
+        $clubId = null;
+        $clubName = null;
+        $ground = null;
+
+        if(isset($_GET['clubId'])){
+            if(is_numeric($_GET['clubId'])){
+                $clubId = $_GET['clubId'];
+
+                // Get the info from the database
                 require 'db.php';
-
-                // retreive the information from the database
-                $sql = "SELECT clubId, clubName AS 'Club Name', ground AS 'Club Ground' FROM clubs";
-
+                $sql = "SELECT * FROM clubs WHERE clubId = :clubId";
                 $cmd = $db->prepare($sql);
+                $cmd->bindParam(':clubId', $clubId, PDO::PARAM_INT);   // Bind param, must be int. Done for security
                 $cmd->execute();
-                $clubs = $cmd->fetchAll();
+                $club = $cmd->fetch(); // Return 1 result, so use fetch, not fetchAll();
+                $clubName = $club['clubName'];
+                $ground = $club['ground'];
 
-                foreach($clubs as $club){
-                    echo '<tr>
-                            <td>'
-                                . $someVar = $club['Club Name']
-                            . '</td>
-                            <td>'
-                            . $nextVar = $club['Club Ground']
-                            . '</td>
-                        </tr>';  
-                }
-            ?>
-        </tbody>
-    </table>
+                echo "<script>console.log('debug objects: '" . $clubName . ");</script>";
+
+                // Disconnect
+                $db = null;
+            }
+        }
+    ?>
+<body>
+    <main>
+        <h1>Add/Edit Club Information</h1>
+        <!-- Page form -->
+        <form method="POST" action="save-club.php">
+            <fieldset>
+                <label for="clubname">Club Name:</label>
+                <input name="clubname" id="clubname" required maxlength="100" value="<?php echo $clubName; ?>">
+            </fieldset>
+            <fieldset>
+                <label for="ground">Club Ground:</label>
+                <input name="ground" id="ground" required maxlength="100" value="<?php echo $ground; ?>">
+            </fieldset>
+        </form>
+    </main>
 </body>
 </html>
