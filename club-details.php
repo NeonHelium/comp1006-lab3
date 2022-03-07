@@ -35,20 +35,20 @@
         }
     ?>
 <body>
-    <main>
+    <main class="contain">
         <h1>Add/Edit Club Information</h1>
         <!-- Page form -->
         <form method="POST" action="save-club.php">
-            <fieldset>
-                <label for="clubName">Club Name:</label>
+            <fieldset class="form-group m-1">
+                <label for="clubName" class="control-label col-1">Club Name:</label>
                 <input name="clubName" id="clubName" required maxlength="100" value="<?php echo $clubName; ?>">
             </fieldset>
-            <fieldset>
-                <label for="ground">Club Ground:</label>
+            <fieldset class="form-group m-1">
+                <label for="ground" class="control-label col-1">Club Ground:</label>
                 <input name="ground" id="ground" required maxlength="100" value="<?php echo $ground; ?>">
             </fieldset>
             <input type="hidden" name="clubId" id="clubId" value="<?php echo $clubId; ?>">
-            <button>Save</button>
+            <button class="btn btn-primary offset-1 mt-4">Save</button>
         </form>
     </main>
 </body>

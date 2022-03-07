@@ -8,13 +8,13 @@
     <title>Clubs</title>
     <!-- Boostrap -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
-    <!-- Custome JS -->
+    <!-- Custom JS -->
     <script src="js/confirmDelete.js" type="text/javascript" defer></script>
 </head>
 <body>
     <h1>Clubs List</h1>
     <a href="club-details.php">Add New Club</a>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Club Name</th>
@@ -42,7 +42,8 @@
                                 . $club['Club Ground'] . 
                             '</td>
                             <td>
-                                <a href="delete-club.php?clubId=' . $club['clubId'] . '" 
+                                <a href="delete-club.php?clubId=' . $club['clubId'] . '"
+                                class="btn btn-danger"
                                 onclick="return confirmDelete()">Delete</a>
                             </td>
                         </tr>';  

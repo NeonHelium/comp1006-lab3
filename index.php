@@ -10,8 +10,10 @@
 </head>
 <body>
     <main>
-        <h1>Welcome to Lab 3, PHP Web Programming</h1>
-
+        <h1>Welcome to Lab 3</h1>
+        <h3>PHP Web Programming</h3>
+        <a href="clubs.php">View Clubs</a>
+        <a href="club-details.php">Add New Club</a>
     </main>
 </body>
 </html>
