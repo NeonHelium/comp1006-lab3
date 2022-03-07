@@ -8,9 +8,12 @@
     <title>Clubs</title>
     <!-- Boostrap -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <!-- Custome JS -->
+    <script src="js/confirmDelete.js" type="text/javascript" defer></script>
 </head>
 <body>
     <h1>Clubs List</h1>
+    <a href="club-details.php">Add New Club</a>
     <table>
         <thead>
             <tr>
@@ -39,7 +42,8 @@
                                 . $club['Club Ground'] . 
                             '</td>
                             <td>
-                                
+                                <a href="delete-club.php?clubId=' . $club['clubId'] . '" 
+                                onclick="return confirmDelete()">Delete</a>
                             </td>
                         </tr>';  
                 }

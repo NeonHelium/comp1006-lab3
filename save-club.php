@@ -26,11 +26,6 @@
                 $okay = false;
             }
 
-            if(!is_numeric($clubId)){
-                echo "Club Id must be numeric.";
-                $okay = false;
-            }
-
             // If we are okay to proceed, then save the data to the database
             if($okay){
                 require "db.php";
@@ -55,6 +50,8 @@
                 $db = null;
 
                 echo "Club saved";
+                echo '<a href="clubs.php">Return to Clubs Lists</a>';
+                echo '<a href="club-details.php">Add Another Club</a>';
             }
         ?>
     </main>
